@@ -1,18 +1,38 @@
 #include <stdio.h>
 
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
-
-
-int square( int a )
+int factorial(int n)
 {
-    return (a * a);
+	int i;
+	int res = 1;
+	for (i=1 ; i<=n; i++)
+		res = res*i;	
+			
+	return res;
 }
 
-int main() 
-{ 
-	int a = 2; 
-	a=square(a); 
-	printf("a=%i\n",a); 
+int combination(int n, int r)
+{
+	int up, down;
 
+	up = factorial(n);
+	down = factorial(n-r)*factorial(r);
+	return up/down;
+}
+
+int main(void)
+{
+	//variable declare
+	int n, r;
+	int res;
+	
+	//input data
+	printf("input n and r : ");
+	scanf("%d %d", &n, &r);
+	
+	//compute combination()
+	res = combination(n,r);
+	//결과출력
+	printf("combination result is %d\n", res);
+	
 	return 0;
 }
